@@ -24,3 +24,7 @@ yarn-error.log*
 /src-cordova/platforms
 /src-cordova/plugins
 /src-cordova/www
+
+# Firebase
+GoogleService-Info.plist
+google-services.json
