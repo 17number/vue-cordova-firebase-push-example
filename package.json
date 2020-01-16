@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --dest src-cordova/www",
+    "build-ios": "npm run build && cd src-cordova && cordova build ios --buildFlag='-UseModernBuildSystem=0' && cd -",
+    "deploy-ios": "cd src-cordova && cordova run ios $1 && cd -",
+    "build-deploy-ios": "npm run build-ios && npm run deploy-ios $1",
     "lint": "vue-cli-service lint",
     "cordova-build-android": "cross-env CORDOVA_PLATFORM=android vue-cli-service cordova-build-android",
     "cordova-build-browser": "cross-env CORDOVA_PLATFORM=browser vue-cli-service cordova-build-browser",
