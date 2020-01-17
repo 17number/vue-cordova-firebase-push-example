@@ -62,7 +62,11 @@ const checkNotificationPermission = requested => {
 // トークンの取得
 const getToken = () => {
   FirebasePlugin.getToken(
-    token => console.log("Got FCM token: " + token),
+    token => {
+      console.log("Got FCM token: " + token);
+      // news トピックの購読
+      FirebasePlugin.subscribe("news");
+    },
     error => console.error("Failed to get FCM token", error)
   );
 };
