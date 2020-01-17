@@ -15,6 +15,7 @@ const onDeviceReady = () => {
   cordova = window.cordova;
 
   FirebasePlugin.onMessageReceived(onFcmReceived, onFcmReceivedError);
+  FirebasePlugin.onTokenRefresh(onFcmTokenRefresh, onFcmTokenRefreshError);
   checkNotificationPermission(false);
 
   console.log({ platformId: cordova.platformId });
@@ -69,6 +70,17 @@ const getToken = () => {
     },
     error => console.error("Failed to get FCM token", error)
   );
+};
+
+// トークンの更新
+const onFcmTokenRefresh = token => {
+  console.log("onTokenRefresh");
+  console.log({ token });
+  // unsubscribe/subscribe した方が良い？
+};
+const onFcmTokenRefreshError = error => {
+  console.log("onTokenRefresh");
+  console.error({ error });
 };
 
 document.addEventListener("deviceready", onDeviceReady);
