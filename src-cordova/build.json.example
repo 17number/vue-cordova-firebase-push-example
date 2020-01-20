@@ -1,0 +1,12 @@
+{
+  "ios": {
+    "debug": {
+      "codeSignIdentity": "Your identity for debug",
+      "provisioningProfile": "12345678-abcd-1234-abcd-1234567890ab"
+    },
+    "release": {
+      "codeSignIdentity": "Your identity for release",
+      "provisioningProfile": "12345678-abcd-1234-abcd-1234567890ab"
+    }
+  }
+}
