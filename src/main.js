@@ -23,6 +23,7 @@ const onDeviceReady = () => {
     case "android":
       break;
     case "ios":
+      initIos();
       break;
     default:
       break;
@@ -81,6 +82,15 @@ const onFcmTokenRefresh = token => {
 const onFcmTokenRefreshError = error => {
   console.log("onTokenRefresh");
   console.error({ error });
+};
+
+// iOS デバイス用 初期化処理
+// ※この処理がなくてもプッシュ通知は受信できる模様、用途不明(理解できていない)
+const initIos = () => {
+  // FirebasePlugin.onApnsTokenReceived(
+  //   token => console.log("APNS token received: " + token),
+  //   error => console.error("Failed to receive APNS token", error)
+  // );
 };
 
 document.addEventListener("deviceready", onDeviceReady);
